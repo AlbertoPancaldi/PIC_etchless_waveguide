@@ -13,3 +13,6 @@ venv_PIC_etchless/
 build/
 dist/
 *.egg-info/
+
+# EMode stuff
+emode.eph/
