@@ -15,4 +15,5 @@ dist/
 *.egg-info/
 
 # EMode stuff
-emode.eph/
+Alberto's magic stuff/emode.eph/
+*.eph
