@@ -1,0 +1,15 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv_PIC_etchless/
+
+# Environment files
+.env
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
