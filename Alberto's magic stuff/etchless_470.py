@@ -5,26 +5,24 @@ import numpy as np
 wavelength = 470 # [nm] wavelength
 dx, dy = 10, 10 # [nm] resolution
 
-# w_core = 1000 # [nm] waveguide core width
-# w_trench = 1000 # [nm] waveguide side trench width
-
-# h_core = 500 # [nm] waveguide core height
-# h_clad = 1000 # [nm] waveguide top and bottom clad
-
 num_modes = 1 # [-] number of modes
 boundary = 'TE' # boundary condition
 
 ## Connect and initialize EMode
 em = emc.EMode()
 
-# ## View material database
-# em.material_explorer()
-
 ## Settings
 em.settings(
     wavelength = wavelength, x_resolution = dx, y_resolution = dy,
     window_width = 13000, window_height = 7000,
-    num_modes = num_modes, background_material = 'Air')
+    num_modes = num_modes, background_material = 'Air',
+
+    # --- PML boundaries ---
+    # order: [North, South, East, West]
+    pml_NSEW_bool=[0, 0, 1, 1],      # enable PML on all 4 sides
+    num_pml_layers=12,               # 8–16 typical; can also be [N,S,E,W]
+    remove_pml_modes_bool=True       # filter out spurious PML modes
+)
 
 Parylene_C = em.add_material(name='ParyleneC', refractive_index_equation = '[1.639, 1.639, 1.639]')
 PDMS = em.add_material(name = 'PDMS', refractive_index_equation = '[1.4,1.4,1.4]')
