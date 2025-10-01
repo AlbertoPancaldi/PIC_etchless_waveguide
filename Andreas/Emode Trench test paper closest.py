@@ -20,9 +20,9 @@ em = emc.EMode()
 em.settings(
     wavelength = wavelength, x_resolution = dx, y_resolution = dy,
     window_width = 13000, window_height = 7000, #13000 by 7000 works for 5x5 resolution, but 13000 is not wide enough...
-    num_modes = num_modes, background_material = 'Air',
-    boundary_condition = boundary,
-    pml_NSEW_bool = [0,0,1,1], num_pml_layers = 15, remove_pml_modes_bool = 1) # Layers should be 1024, though nearing 20 makes it stop working
+    num_modes = num_modes, background_material = 'Vacuum', # If it stops working, it's probs because I changed this from air
+    boundary_condition = boundary)
+    #pml_NSEW_bool = [0,0,1,1], num_pml_layers = 5, remove_pml_modes_bool = 1) # Layers should be 1024, though nearing 20 makes it stop working
 
 #em.material_explorer()
 
