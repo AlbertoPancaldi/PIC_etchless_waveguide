@@ -1,11 +1,10 @@
 import emodeconnection as emc
-#import numpy as np
 
 ## Set simulation parameters
 wavelength = 470 # [nm] wavelength
 dx, dy = 20, 10 # [nm] resolution
 num_modes = 1 # [-] number of modes
-boundary = '00' # boundary condition
+boundary = '0S' # boundary condition
 
 ## Connect and initialize EMode
 em = emc.EMode(simulation_name = 'Paper_Trench') # custom file name instead of the default "emode.eph"
@@ -13,7 +12,7 @@ em = emc.EMode(simulation_name = 'Paper_Trench') # custom file name instead of t
 ## Settings
 em.settings(
     wavelength = wavelength, x_resolution = dx, y_resolution = dy,
-    window_width = 22000, window_height = 14000,
+    window_width = 20000, window_height = 12000,
     num_modes = num_modes, background_material = 'Air',
     boundary_condition = boundary)
     #pml_NSEW_bool = [0,0,1,1], num_pml_layers = 10) # Keep layer count low, or errors happen, bad in general.
